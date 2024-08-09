@@ -1,10 +1,10 @@
-version: '3'
+
 services:
   prometheus:
     image: prom/prometheus
     volumes:
-      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
-      - "./rules.yml:/etc/prometheus/rules.yml"
+      - "/home/WesleyServer/Documentos/compose-server/grafana-prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+      - "/home/WesleyServer/Documentos/compose-server/grafana-prometheus/rules.yml:/etc/prometheus/rules.yml"
     networks:
       - localprom
     ports:
@@ -20,7 +20,7 @@ services:
   alert-manager:
     image: prom/alertmanager
     volumes:
-      - "./alertmanager.yml:/alertmanager/alertmanager.yml"
+      - "/home/WesleyServer/Documentos/compose-server/grafana-prometheus/alertmanager.yml:/alertmanager/alertmanager.yml"
     networks:
       - localprom
     ports:
